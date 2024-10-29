@@ -21,7 +21,6 @@ function LeftSec({ lon, lat }) {
       setLoading(false);
       setError(false);
       setForecastData(data);
-      console.log(data);
     } catch (error) {
       setLoading(false);
       setError(true);
