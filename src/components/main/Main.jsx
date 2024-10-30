@@ -17,6 +17,8 @@ import stormy from "../../assets/stormy.jpg";
 import hail from "../../assets/hail.jpg";
 
 function Main() {
+  const apiKey = process.env.REACT_APP_API_KEY;
+
   const [weatherData, setWeatherData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -29,7 +31,7 @@ function Main() {
     setError(false);
     try {
       const { data } = await axios.get(
-        `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=e2f6a6662c57e4b5617eb19734c81966&units=metric&lang=fa`
+        `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=fa`
       );
       setWeatherData(data);
       setLoading(false);

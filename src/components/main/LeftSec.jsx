@@ -7,6 +7,8 @@ import Error from "../error/Error";
 moment.loadPersian({ usePersianDigits: true });
 
 function LeftSec({ lon, lat }) {
+  const apiKey = process.env.REACT_APP_API_KEY;
+
   const [forecastData, setForecastData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -16,7 +18,7 @@ function LeftSec({ lon, lat }) {
     setError(false);
     try {
       const { data } = await axios.get(
-        `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=e2f6a6662c57e4b5617eb19734c81966&units=metric&lang=fa`
+        `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&lang=fa`
       );
       setLoading(false);
       setError(false);
@@ -134,7 +136,7 @@ function LeftSec({ lon, lat }) {
                     <span className="py-[1px] w-24 rounded-md bg-gradient-to-r from-cyan-500 to-purple-800 mx-2"></span>
                     <p className="flex items-center text-slate-300">
                       <TbTemperatureCelsius />
-                       {item.minTemp.toFixed(0)}
+                      {item.minTemp.toFixed(0)}
                     </p>
                   </li>
                 ))}
