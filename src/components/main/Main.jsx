@@ -31,7 +31,7 @@ function Main() {
     setError(false);
     try {
       const { data } = await axios.get(
-        `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=fa`
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=fa`
       );
       setWeatherData(data);
       setLoading(false);
